@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_test_app/models/favorites.dart';
 import 'package:flutter_test_app/screens/home.dart';
+import 'package:provider/provider.dart';
 
 Widget createHomeScreen() => ChangeNotifierProvider<Favorites>(
-  create: (context) => Favorites(),
-  child: const MaterialApp(
-    home: HomePage(),
-  ),
-);
+      create: (context) => Favorites(),
+      child: const MaterialApp(
+        home: HomePage(),
+      ),
+    );
 
 void main() {
   group('Home Page Widget Tests', () {
-
-
     // // BEGINNING OF NEW CONTENT
     // testWidgets('Testing if ListView shows up', (tester) async {
     //   await tester.pumpWidget(createHomeScreen());
     //   expect(find.byType(ListView), findsOneWidget);
     // });
     // // END OF NEW CONTENT
-
 
     testWidgets('Testing Scrolling', (tester) async {
       await tester.pumpWidget(createHomeScreen());
@@ -35,7 +32,6 @@ void main() {
       expect(find.text('Item 0'), findsNothing);
     });
 
-
     testWidgets('Testing IconButtons', (tester) async {
       await tester.pumpWidget(createHomeScreen());
       expect(find.byIcon(Icons.favorite), findsNothing);
@@ -48,8 +44,5 @@ void main() {
       expect(find.text('Removed from favorites.'), findsOneWidget);
       expect(find.byIcon(Icons.favorite), findsNothing);
     });
-
-
-
   });
 }
