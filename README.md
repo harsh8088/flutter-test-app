@@ -1,6 +1,6 @@
 # flutter_test_app
 
-A new Flutter project.
+A Flutter project using the [test](https://pub.dev/packages/test) package.
 
 ## Getting Started
 
